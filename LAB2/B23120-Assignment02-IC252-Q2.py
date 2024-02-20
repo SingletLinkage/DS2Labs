@@ -15,7 +15,7 @@ def factorial(n):
         return 1
     return n * factorial(n - 1)
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     n = np.arange(1, 21)
     p = np.array([factorial(i) / stirling_approx(i) for i in n])
 
