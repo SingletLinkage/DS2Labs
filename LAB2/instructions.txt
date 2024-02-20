@@ -1,0 +1,16 @@
+
+General Instructions:
+
+1.       Submit one zip file, the name of the zip file should strictly follow the given rule: <RollNumber>-Assignment02-IC252.zip (ex: B20121-Assignment02-IC252.zip).
+
+2.       Your .zip file should contain five python files named <Roll Number>-Assignment02-IC252-Q02.py, <Roll Number>-Assignment02-IC252-Q2.py, <Roll Number>-Assignmen02-IC252-Q3.py, <Roll Number>-Assignment02-IC252-Q4.py, and <Roll Number>-Assignment02-IC252-Q5.py.
+
+3.       You are allowed to use only the NumPy, pandas, matplotlib and/or seaborn library for the same.
+
+4.       You are also free to use any of the standard libraries that come pre-installed with python.
+
+5.       If you are taking help from any online source, kindly reference the same in your code.
+
+6.       Any form of plagiarism will not be tolerated (Awarding zero in respective assignment).
+
+7.       Use of tools like ChatGPT or GitHub-Copilot is discouraged.
