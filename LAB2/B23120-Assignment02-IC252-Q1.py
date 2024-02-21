@@ -45,7 +45,7 @@ for i in range(len(values)):
 
 # setting up x and y labels, title, ticks and grid
 plt.xlabel('Number of people in the room')
-plt.ylabel('Probability of at least two of people having the same birthday')
+plt.ylabel('Probability of at least two people having the same birthday')
 plt.title('Birthday Paradox')
 plt.xticks(np.arange(0, 101, 20))
 plt.grid(True)
