@@ -1,3 +1,4 @@
+# Question 2
 # Stirling’s formula is given below is used to approximate the factorial of a given number.
 #                               n! ~ √(2πn) * (n/e)^n
 # Write a program to plot the ratio given below as n grows from 1 to 20.
@@ -21,6 +22,9 @@ if __name__ == '__main__':
 
     plt.plot(n, p, color='g', linewidth=2)
     plt.grid(True)
-    plt.xticks(np.arange(1, 21, 2))
+    plt.xticks(np.arange(1, 21, 1))
     plt.yticks(np.arange(1, 1.1, 0.01))
+    plt.title('Ratio of n! to Stirling\'s Approximation')
+    plt.xlabel('n', fontdict={'fontsize': 12})
+    plt.ylabel('n! / Stirling\'s Approximation', fontdict={'fontsize': 12})
     plt.show()

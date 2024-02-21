@@ -34,6 +34,9 @@ def main():
     plt.gca().set_axisbelow(True)
     plt.bar(possible_sums, probablity)
     plt.xticks(possible_sums)
+    plt.title('Probability Distribution of Sum of Numbers Obtained on the Two Dice')
+    plt.xlabel('Sum of the Numbers obtained on dice throw', fontdict={'fontsize': 12})
+    plt.ylabel('Probability', fontdict={'fontsize': 12})
     plt.show()
 
 if __name__ == "__main__":

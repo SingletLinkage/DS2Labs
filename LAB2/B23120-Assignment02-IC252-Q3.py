@@ -11,7 +11,7 @@ import numpy as np
 from itertools import permutations
 
 N_LIMIT = 20
-TEST_CASES = 50000  # must be more than 1000 for an accurate approximation
+TEST_CASES = 80000  # must be more than 1000 for an accurate approximation
 
 def simulate_test_case(n):
     cards = list(range(1, n + 1))
