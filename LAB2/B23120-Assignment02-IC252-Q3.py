@@ -77,6 +77,7 @@ def main():
     plt.xticks(np.arange(1, N_LIMIT + 1, 1, dtype=int))
     plt.grid(True)
     plt.title('Win probability vs Number of cards')
+    plt.gcf().canvas.manager.set_window_title('Plot of Win Probability vs Number of Cards')
     # =============================== END COSMETICS ===============================
 
     plt.plot(range(2, N_LIMIT + 1), probabilities)

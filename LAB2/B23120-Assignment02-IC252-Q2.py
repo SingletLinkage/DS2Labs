@@ -27,4 +27,5 @@ if __name__ == '__main__':
     plt.title('Ratio of n! to Stirling\'s Approximation')
     plt.xlabel('n', fontdict={'fontsize': 12})
     plt.ylabel('n! / Stirling\'s Approximation', fontdict={'fontsize': 12})
+    plt.gcf().canvas.manager.set_window_title('Ratio of n! to Stirling\'s Approximation')
     plt.show()

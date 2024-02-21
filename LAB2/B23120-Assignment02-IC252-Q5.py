@@ -71,6 +71,7 @@ def main():
     plt.figtext(0.53, 0.02, 'Outcomes', ha='center', va='center', fontdict={'fontsize': 12})  
     plt.suptitle('Monty Hall Problem Simulation Results', fontsize=15)
     plt.tight_layout()
+    plt.gcf().canvas.manager.set_window_title('Monty Hall Problem Simulation Results')
     plt.show()    
 
 

@@ -35,6 +35,7 @@ def main():
     plt.bar(possible_sums, probablity)
     plt.xticks(possible_sums)
     plt.title('Probability Distribution of Sum of Numbers Obtained on the Two Dice')
+    plt.gcf().canvas.manager.set_window_title('Probability Distribution of Sum of Numbers Obtained on the Two Dice')
     plt.xlabel('Sum of the Numbers obtained on dice throw', fontdict={'fontsize': 12})
     plt.ylabel('Probability', fontdict={'fontsize': 12})
     plt.show()

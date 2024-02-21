@@ -47,6 +47,7 @@ for i in range(len(values)):
 plt.xlabel('Number of people in the room')
 plt.ylabel('Probability of at least two people having the same birthday')
 plt.title('Birthday Paradox')
+plt.gcf().canvas.manager.set_window_title('Birthday Paradox')
 plt.xticks(np.arange(0, 101, 20))
 plt.grid(True)
 # ============================== END COSMETICS ====================================
