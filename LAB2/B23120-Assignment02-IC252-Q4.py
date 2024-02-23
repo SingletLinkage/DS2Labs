@@ -12,11 +12,13 @@
 import random
 import matplotlib.pyplot as plt
 
-def get_random_dice_throw_sum():
+def get_random_dice_throw_sum() -> int:
     return random.randint(1,6) + random.randint(1,6)
 
+# define experiment constants
 TRIALS = 10000
 possible_sums = range(2,13)
+
 frequency = [0] * len(possible_sums)
 
 def main():

@@ -19,10 +19,10 @@ switch_choice = [0, 1]  # 0 for stick with initial choice, 1 for switch to other
 TRIALS = 10000
 outcomes = [[0,0],[0,0]]  # [ stick:[loss, win], switch:[loss, win] ]
 
-def simulate(doors, initial, switch):
+def simulate(doors: list, initial: int, switch: int) -> int:  # 0 for loss, 1 for win
     return switch ^ doors[initial]
 
-def print_stats(stats):
+def print_stats(stats: list) -> None:
     print(''.center(50, '='))
     print('Monty Hall Problem Simulation Results:')
     print(''.center(50, '='))

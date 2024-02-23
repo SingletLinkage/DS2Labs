@@ -8,10 +8,10 @@ import math
 import matplotlib.pyplot as plt
 import numpy as np
 
-def stirling_approx(n):
+def stirling_approx(n: int) -> float:
     return math.sqrt(2 * math.pi * n) * (n / math.e) ** n
 
-def factorial(n):
+def factorial(n: int) -> int:
     if n == 0:
         return 1
     return n * factorial(n - 1)

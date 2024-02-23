@@ -8,12 +8,13 @@
 import random
 import matplotlib.pyplot as plt
 import numpy as np
+import math
 from itertools import permutations
 
-N_LIMIT = 20
-TEST_CASES = 80000  # must be more than 1000 for an accurate approximation
+N_LIMIT = 52
+TEST_CASES = 30000  # must be more than 1000 for an accurate approximation
 
-def simulate_test_case(n):
+def simulate_test_case(n: int) -> bool:
     cards = list(range(1, n + 1))
     random.shuffle(cards)
     win = False
@@ -23,7 +24,7 @@ def simulate_test_case(n):
             break
     return win
 
-def calculate_actual_probab(n):
+def calculate_actual_probab(n: int) -> float:
     # please do not run for higher values of n
     # time complexity: O(n!)
     all_cases = list(permutations(range(n)))
@@ -32,6 +33,20 @@ def calculate_actual_probab(n):
         if any(case[i] == i for i in range(n)):
             wins += 1
     return wins/len(all_cases)
+
+def actual_probab_derangement(n: int) -> float:
+    # time complexity: O(n)
+    # space complexity: O(n)
+    if n == 1:
+        return 0
+    if n == 2:
+        return 0.5
+    
+    derangement = 0
+    for i in range(0, n+1):
+        derangement += (-1)**i / math.factorial(i)
+
+    return 1 - derangement
 
 
 def main():
@@ -43,13 +58,10 @@ def main():
         simulation = [simulate_test_case(n) for _ in range(TEST_CASES)]
         simulated_win_probability = simulation.count(True) / TEST_CASES
 
-        if n < 10: 
-            # To prevent calling actual probability for large values of n
-            actual_win_probability = calculate_actual_probab(n)
-            print(f'Win probability for {n=} is {simulated_win_probability:.3f} ... actual: {actual_win_probability:.3f}')
-            actual.append(actual_win_probability)
-        else:
-            print(f'Win probability for {n=} is {simulated_win_probability:.3f}')
+        # actual_win_probability = calculate_actual_probab(n) --> dont use for higher values of n
+        actual_win_probability = actual_probab_derangement(n)
+        print(f'Win probability for {n=} is {simulated_win_probability:.3f} ... actual: {actual_win_probability:.3f}')
+        actual.append(actual_win_probability)
 
         probabilities.append(simulated_win_probability)
         n += 1
@@ -80,8 +92,9 @@ def main():
     plt.gcf().canvas.manager.set_window_title('Plot of Win Probability vs Number of Cards')
     # =============================== END COSMETICS ===============================
 
-    plt.plot(range(2, N_LIMIT + 1), probabilities)
-    plt.plot(range(2, len(actual)+2), actual, linestyle='--', color='black')
+    plt.plot(range(2, N_LIMIT + 1), probabilities, label='Simulated Win Probability')
+    plt.plot(range(2, len(actual)+2), actual, linestyle='--', color='black', label='Theoretical Win Probability')
+    plt.legend(loc='upper right')
     plt.show()   
 
 

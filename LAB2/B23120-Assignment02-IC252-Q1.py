@@ -7,10 +7,10 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-def birthday_paradox(k):
+def birthday_paradox(k: int) -> float:
     return 1 - np.prod((365 - np.arange(k)) / 365)
 
-def birthday_paradox_other(k):
+def birthday_paradox_other(k: int) -> float:
     value = 1
     for i in range(1, k+1):
         value = value * (365 - i + 1) / 365
