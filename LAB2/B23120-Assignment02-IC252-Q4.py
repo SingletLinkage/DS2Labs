@@ -28,9 +28,13 @@ def main():
 
     probablity = [f/TRIALS for f in frequency]
 
-    print('Sum\tFrequency\tProbability')
+    print('+'+'-'*7+'+'+'-'*15+'+'+'-'*15+'+')
+    print('| Sum\t| Frequency\t| Probability\t|')
+    print('+'+'='*7+'+'+'='*15+'+'+'='*15+'+')
+
     for i in range(len(possible_sums)):
-        print(f"{possible_sums[i]}\t{frequency[i]}\t\t{probablity[i]:.2f}")
+        print(f"| {possible_sums[i]}\t| {frequency[i]}\t\t| {probablity[i]:.2f}\t\t|")
+        print('+'+'-'*7+'+'+'-'*15+'+'+'-'*15+'+')
 
     plt.grid(True)
     plt.gca().set_axisbelow(True)
