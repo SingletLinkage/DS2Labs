@@ -2,7 +2,7 @@ from numpy.random import exponential
 import matplotlib.pyplot as plt
 import numpy as np
 
-avg_cases_per_hr = 57
+avg_cases_per_hr = 57  # lambda = 1 / mean
 cases = 100000
 
 distro = exponential(1/avg_cases_per_hr, cases)

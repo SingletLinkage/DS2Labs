@@ -7,7 +7,7 @@ def part_a():
     # probability of full house
     # 13C1 * 4C3 * 12C1 * 4C2 / 52C5
     probability_full_house = math.comb(13, 1) * math.comb(4, 3) * math.comb(12, 1) * math.comb(4, 2) / math.comb(52, 5)
-    print(f"Probability of full house: {probability_full_house:.5f}")
+    print(f"Theoretical: \tProbability of full house: \t{probability_full_house:.5f}")
 
 # ----------------- Part B -----------------
 def part_b():
@@ -28,7 +28,7 @@ def part_b():
             # print(ranks)
             full += 1
 
-    print(f"Simulated probability of full house: {full/valid:.5f}")
+    print(f"Simulated: \tProbability of full house: \t{full/valid:.5f}")
 
 
 # ----------------- Part C -----------------
@@ -63,21 +63,22 @@ def part_c():
             fh_count += 1
 
     # print(fulls)
-    print("Probability of getting more than two full houses: ", fh_count/expts)
+    print("Simulated: \tP(getting more than 2 full houses): \t", fh_count/expts)
     probability_full_house = math.comb(13, 1) * math.comb(4, 3) * math.comb(12, 1) * math.comb(4, 2) / math.comb(52, 5)    
     # mean = 1 - (zero full house probab) - (1 full house probab)
 
     mean_th = 1 - (1 - probability_full_house)**trials - (trials * probability_full_house * (1 - probability_full_house)**(trials-1))
     
-    print('Theoretical: Full house mean: ', round(mean_th,2))
+    print('Theoretical: \tP(getting more than 2 full houses): \t', round(mean_th,2))
 
 
 
-    print('Simulated: Full house mean and variance: ')
-    print(f"Mean: {np.mean(fulls)}")
+    print('Full house: \t', end='')
+    print(f"Mean: {np.mean(fulls)}\t", end ='')
     print(f"Variance: {np.var(fulls):.2f}")
 
 
-part_a()
-part_b()
-part_c()
+if __name__ == "__main__":
+    part_a()
+    part_b()
+    part_c()

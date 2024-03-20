@@ -1,4 +1,3 @@
-from functools import reduce
 import numpy as np
 import matplotlib.pyplot as plt
 from tabulate import tabulate
@@ -10,10 +9,10 @@ X = np.array([2, 11, 23, 9, 4, 1])
 def part_a():
     pdf = X/np.sum(X)
     cdf = np.cumsum(pdf)
-
+    # print(pdf, cdf)
     x_pts = np.arange(0, 6)
-    plt.plot(x_pts, pdf, label='PDF')
-    plt.plot(x_pts, cdf, label='CDF')
+    plt.step(x_pts, cdf, color='blue', label='CDF')
+    plt.step(x_pts, pdf, color='red', label='PDF')
 
     plt.xlabel('Values of X: ')
     plt.ylabel('Probability: ')
@@ -53,17 +52,17 @@ def part_b():
 
 def part_c():
     n = 50
-    trials = 1000
+    trials = 10000
     means = []
     for i in range(trials):
-        outcomes = np.random.choice([0, 1, 2, 3, 4, 5], n, True, X/sum(X))
+        outcomes = np.random.choice([0, 1, 2, 3, 4, 5], size=n, replace=True, p=X/sum(X))
         means.append(sum(outcomes)/n)
-    plt.hist(means, bins=50)
+    plt.hist(means, bins=70)
     plt.show()  # appears to be a normal distro with some outliers
 
     # mean and variance of means:
-    mean_m = sum(means)/trials
-    variance_m = sum([(i-mean_m)**2 for i in means])/trials
+    mean_m = np.mean(means)
+    variance_m = np.var(means)
 
     print(f'Mean of the means: {mean_m:.3f}')
     print(f'Variance of the means: {variance_m:.3f}')

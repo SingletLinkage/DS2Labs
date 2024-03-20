@@ -43,4 +43,4 @@ print(database)
 # part 1
 
 # get total cases per day inclusive of all states
-print(database.sum())
+print(database.sum().mean())
