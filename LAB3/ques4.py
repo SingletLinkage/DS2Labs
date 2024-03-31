@@ -73,8 +73,8 @@ def part_c():
 
 
 
-    print('Full house: \t', end='')
-    print(f"Mean: {np.mean(fulls)}\t", end ='')
+    print('Full house: ', end='')
+    print(f"Mean: {np.mean(fulls)}\t", end='')
     print(f"Variance: {np.var(fulls):.2f}")
 
 
