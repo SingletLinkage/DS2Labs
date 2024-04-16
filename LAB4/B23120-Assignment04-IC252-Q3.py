@@ -105,8 +105,7 @@ def part_d():
     plt.show()
 
 def part_e():
-    # If professors are more likely to assign harder exams to students with higher expected scores, the score normal distribution would even out slightly as the actual marks of students having a higher expected score will get diminished as a consequence of getting a harder paper while the actual marks of students having a lower expecxted score will increase as theyll get a easier paper. The standard deviation and variance of marks will decrease but mean will remain the same. The height of the peak will increase as the marks of all students will approach the mean marks.
-    ...
+    print('If professors are more likely to assign harder exams to students with higher expected scores, the score normal distribution would even out slightly as the actual marks of students having a higher expected score will get diminished as a consequence of getting a harder paper while the actual marks of students having a lower expecxted score will increase as theyll get a easier paper. The standard deviation and variance of marks will decrease but mean will remain the same. The height of the peak will increase as the marks of all students will approach the mean marks.')
 
 
 def main():

@@ -20,6 +20,9 @@ def part_a():
     plt.imshow(joint_pdf, cmap='hot', interpolation='nearest')
     plt.xlabel('X')
     plt.ylabel('Y')
+    plt.xticks(np.linspace(0,1,10))
+    plt.yticks(np.linspace(0,1,10))
+
     plt.title('Joint Probability Distribution')
     plt.colorbar()
 
@@ -70,7 +73,6 @@ def part_e():
     for i in z:
         # z[i] = x + y
         # P(Z = z[i]) = P(X + Y = z[i]) = P(X = x) * P(Y = y) = P(X = z[i] - y) * P(Y = y)
-        # apparently according some pre plotted gramph, the peak is coming with frequency of 50, so i divide by 50 uwu
         pdf.append(np.sum([X.pdf(i - y) * Y.pdf(y) for y in np.linspace(1, 2, 100)])/50)
 
     plt.plot(z, pdf)

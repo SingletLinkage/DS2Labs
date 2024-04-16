@@ -18,7 +18,7 @@ FM_pdf = NormalDist(mu=1.5, sigma=0.75)
 
 
 def part_0():
-    #simulating stuff
+    # simulating stuff
     # Take samples
     am_vals = AM_pdf.samples(100)
     fm_vals = FM_pdf.samples(100)
@@ -50,7 +50,7 @@ def part_a():
 def part_b():
     # P(t_FM < 1 | t_AM = 2) = P(t_FM < 1) = F(t_FM = 1)
     p = FM_pdf.cdf(1)
-    print(f'{p:.3f}')
+    print(f'P(t_FM < 1 | t_AM = 2) = {p:.3f}')
 
 def part_c():
     # T = t_FM + t_AM -> simulation for 100 pair of AM and FM
@@ -97,7 +97,9 @@ def part_e():
     # YFM -> Normal(1.5, 0.75) - Normal(1.5, 0.75) = Normal(0, ((0.75)^2 + (0.75)^2)^0.5)
 
     # Plot the PDFs
-    samples = sorted(np.random.randint(0, 500, 10000)/100)
+    pts = 1000
+    # Generate the random samples for AM and FM
+    samples = np.linspace(0, 5, pts)    
     YAM_pdf = NormalDist(mu=0, sigma=(0.5**2 + 0.5**2)**0.5)
     YFM_pdf = NormalDist(mu=0, sigma=(0.75**2 + 0.75**2)**0.5)
 

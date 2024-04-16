@@ -52,7 +52,7 @@ def conditional_probab(df : pd.DataFrame, mar_weather : pd.Series):
 
 if __name__ == '__main__':
     df = pd.DataFrame(joint_probab_table(), columns=clothes, index=weathers)
-    res = marginal_probab_table(df)
+    res = marginal_probab_table(df) # returns marginal of weather, cloth
 
     # ============== Part A =================
     print('Joint Probability Table')
