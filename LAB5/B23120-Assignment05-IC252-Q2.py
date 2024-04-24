@@ -20,7 +20,6 @@ subset = mumbai_suburban[(mumbai_suburban['Date'] >= '2021-04-01') & (mumbai_sub
 subset['Expected'] = subset['Retail']*probab_dict['Retail'] + subset['Grocery/Pharma']*probab_dict['Grocery/Pharmacy'] + subset['Parks']*probab_dict['Parks'] + subset['Transport']*probab_dict['Transport'] + subset['Workplace']*probab_dict['Workplace'] + subset['Residential']*probab_dict['Residential']
 # print(subset.head())
 
-# plotting: - STUPIDASS GRAPH - NO INFERENCE CAN BE DRAWN
 colors = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#e377c2']
 subset.plot(kind='line', x='Date', color = colors)
 plt.title('Mobility Trends in Mumbai Suburban')
@@ -28,7 +27,6 @@ plt.ylabel('Mobility Trends')
 plt.xlabel('Date')
 plt.show()
 
-# plotting v_2 - only plot averages on a bar graph - better than the previous one uwu
 subset.iloc[:,1:].mean().plot(kind='bar', color = colors)
 plt.title('Average Mobility Trends in Mumbai Suburban')
 plt.ylabel('Mobility Trends')
@@ -43,8 +41,10 @@ plt.show()
 # 2. MAE
 # 3. KL Divergence
 
-rms_error = ((subset['Expected'] - subset['Retail'])**2).mean()**0.5
-mae = (subset['Expected'] - subset['Retail']).abs().mean()
-kl_divergence = (subset['Expected']*np.log(subset['Expected']/subset['Retail'])).sum()
+for col in subset.columns[1:-1]:
+    rms_error = ((subset['Expected'] - subset[col])**2).mean()**0.5
+    mae = (subset['Expected'] - subset[col]).abs().mean()
+    kl_divergence = (subset['Expected']*np.log(abs(subset['Expected']/subset[col]))).sum()
 
-print(f'RMS Error: {rms_error:.3f}\nMAE: {mae:.3f}\nKL Divergence: {kl_divergence:.3f}')
+    print(f'Mobility: {col}\n\t+ RMS Error: \t{rms_error:.3f}\n\t+ MAE: \t\t{mae:.3f}\n\t+ KL Divergence:{kl_divergence:.3f}')
+    print('='*35)

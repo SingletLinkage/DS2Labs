@@ -36,3 +36,6 @@ distribution = BivariateGaussianDistribution(1.0, 1.0, 1.0, 1.0, 0.5)
 pdf_value = distribution.calculate_pdf(1.5, 2.0)
 marginal_pdf_x = distribution.marginal_pdf_x(1.0)
 distribution.plot_pdf_contour()
+
+print(pdf_value)
+print(marginal_pdf_x)

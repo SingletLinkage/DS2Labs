@@ -18,10 +18,10 @@ df = pd.DataFrame(word_freq.items(), columns=['Word', 'Frequency'])
 df = df.sort_values(by='Frequency', ascending=False).reset_index(drop=True)
 df['Probability'] = df['Frequency'] / df['Frequency'].sum()
 
-freq_bins = np.linspace(0, 1, 10)
-plt.hist(df['Probability'], bins=freq_bins, density=True)
-plt.xlabel('Probability')
-plt.ylabel('Number of Words')
+# Plotting
+plt.hist(df['Frequency'], bins=100, density=True)
+plt.ylabel('Probability')
+plt.xlabel('Number of Words')
 plt.title('Probability Distribution of Word Frequency')
 plt.show()
 
@@ -38,7 +38,7 @@ df = pd.DataFrame(pair_freq.items(), columns=['Pair', 'Frequency'])
 df = df.sort_values(by='Frequency', ascending=False).reset_index(drop=True)
 df['Probability'] = df['Frequency'] / df['Frequency'].sum()
 
-print("Igonring punctuation and white space:")
+print("Ignoring punctuation and white space:")
 print(df.head(10))
 
 # Part C
