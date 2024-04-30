@@ -4,7 +4,7 @@ from scipy.stats import norm
 
 # user input for mean and std deviation:
 mean = float(input("Enter mean: "))
-std_dev = float(input("Enter stardard deviation: "))
+std_dev = float(input("Enter standard deviation: "))
 n = 100
 
 samples = []

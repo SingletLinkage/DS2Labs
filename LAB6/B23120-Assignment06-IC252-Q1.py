@@ -10,16 +10,21 @@ H = -np.sum(p*np.log2(p))
 print(f'Entropy of Fair Coin: {H:.4f}')
 
 # biased coin with X-axis : p(head)
-p_head = np.linspace(0, 1, 100)[1:-1]
+p_head = np.linspace(0, 1, 1000)[1:-1]
 H = np.zeros_like(p_head)
 
 for i, p in enumerate(p_head):
     H[i] = -np.sum([p, 1-p]*np.log2([p, 1-p]))
 
-plt.plot(p_head, H)
-plt.xlabel('p(head)')
-plt.ylabel('Entropy')
-plt.title('Entropy vs Probability of Head')
+fig, ax = plt.subplots()
+ax.plot(p_head, H)
+ax.vlines(x=0.5, ymin=0, ymax=1, color='red', linestyle='--')
+ax.hlines(y=1, xmin=0, xmax=0.5, color='red', linestyle='--')
+ax.plot(0.5, 1, 'ro')
+ax.annotate('(0.5, 1)', (0.5, 1.01))
+ax.set_xlabel('p(head)')
+ax.set_ylabel('Entropy')
+ax.set_title('Entropy vs Probability of Head')
 plt.show()
 
 # PART B
@@ -47,10 +52,15 @@ def plot(mu_a, mu_b, sigma_a, sigma_b, ax, type):
     # but still CE is not completely independent
     # ====================================================
 
-    ax.plot(x, y_a, label='A')
-    ax.plot(x, y_b, label='B')
+    ax.plot(x, y_a, label='A', color='red', alpha=0.5)
+    ax.plot(x, y_b, label='B', color='tab:blue')
+    ax.fill_between(x, y_a, color='lightcoral', alpha=0.5)
+    ax.fill_between(x, y_b, color='lightblue', alpha=0.5)
+    ax.vlines(x=mu_a, ymin=0, ymax=max(y_a), color='red', linestyle='--')
+    ax.vlines(x=mu_b, ymin=0, ymax=max(y_b), color='tab:blue', linestyle='--')
     ax.set_ylabel('PDF')
     ax.set_title(f'Normal Distributions : {type}')
+    ax.set_xticks(np.arange(-10, 11, 1))
     ax.text(0.1, 0.5, f'KL Divergence: {KL:.4f}\nCross Entropy: {CE:.4f}', horizontalalignment='center', verticalalignment='center', transform=ax.transAxes)
     ax.text(0.9, 0.5, f'{mu_a=}\n{mu_b=}\n{sigma_a=}\n{sigma_b=}', horizontalalignment='left', verticalalignment='center', transform=ax.transAxes)
 
