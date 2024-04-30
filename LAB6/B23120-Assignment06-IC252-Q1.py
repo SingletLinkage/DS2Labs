@@ -49,7 +49,7 @@ def plot(mu_a, mu_b, sigma_a, sigma_b, ax, type):
     #                          ISSUE
     # Value of CE getting influenced by the number of pts in x
     # Normalization reduced the incluence (and actually make KL almost independent)
-    # but still CE is not completely independent
+    # but still CE is not completely independent whyyyyyyyyyyyyyyyyyyyyyyyyyyy sed life
     # ====================================================
 
     ax.plot(x, y_a, label='A', color='red', alpha=0.5)

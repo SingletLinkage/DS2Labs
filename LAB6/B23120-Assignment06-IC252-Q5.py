@@ -54,7 +54,7 @@ plt.legend()
 plt.show()
 
 
-# part c: Stratified Sampling
+# part c: Stratified Sampling - idk what ive done here (copilot ftw~)
 
 # Define strata
 strata_sizes = [180, 400, 250]  # Sizes of the strata

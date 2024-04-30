@@ -24,7 +24,6 @@ for i in indices:
 x = np.linspace(0, 10, 1000)
 plt.plot(x, expon.pdf(x, scale=1/lmbda), 'r', label='Exponential Distribution')
 
-
 # Comparing the samples with the actual exponential distribution
 means = [round(np.mean(sample), 3) for sample in samples]
 variances = [round(np.var(sample), 3) for sample in samples]
@@ -45,3 +44,7 @@ print('Actual Standard Deviation:', actual_std_dev)
 
 plt.legend()
 plt.show()
+
+# Just some more comments to unfuck previous git fuckup
+# one more ...
+# just one more ... done yay
